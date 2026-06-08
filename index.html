@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect to Heal — Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fdf6f0;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #888; margin-bottom: 36px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      width: 100%;
+      max-width: 680px;
+    }
+    a.card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1.5px solid #efefef;
+      border-radius: 14px;
+      padding: 18px 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    a.card:hover { border-color: #f4a7c3; box-shadow: 0 4px 16px rgba(244,167,195,.18); }
+    .card-num { font-size: 11px; font-weight: 600; color: #ccc; margin-bottom: 6px; letter-spacing: .04em; }
+    .card-name { font-size: 14px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Connect to Heal</h1>
+  <p class="sub">Design prototype — pick a screen</p>
+  <div class="grid">
+    <a class="card" href="screens/10-landing.html">
+      <span class="card-num">10</span>
+      <span class="card-name">Landing</span>
+    </a>
+    <a class="card" href="screens/11-onboarding.html">
+      <span class="card-num">11</span>
+      <span class="card-name">Onboarding</span>
+    </a>
+    <a class="card" href="screens/12-theme-switcher.html">
+      <span class="card-num">12</span>
+      <span class="card-name">Theme Switcher</span>
+    </a>
+    <a class="card" href="screens/13-find-match.html">
+      <span class="card-num">13</span>
+      <span class="card-name">Find Match</span>
+    </a>
+    <a class="card" href="screens/14-chat.html">
+      <span class="card-num">14</span>
+      <span class="card-name">Chat</span>
+    </a>
+    <a class="card" href="screens/16-journal.html">
+      <span class="card-num">16</span>
+      <span class="card-name">Journal</span>
+    </a>
+    <a class="card" href="screens/17-dashboard.html">
+      <span class="card-num">17</span>
+      <span class="card-name">Dashboard</span>
+    </a>
+    <a class="card" href="screens/18-paywall.html">
+      <span class="card-num">18</span>
+      <span class="card-name">Paywall</span>
+    </a>
+    <a class="card" href="screens/19-connections.html">
+      <span class="card-num">19</span>
+      <span class="card-name">Connections</span>
+    </a>
+    <a class="card" href="screens/20-blog-post.html">
+      <span class="card-num">20</span>
+      <span class="card-name">Blog Post</span>
+    </a>
+  </div>
+</body>
+</html>

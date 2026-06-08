@@ -1,0 +1,14 @@
+# Claude Code tooling
+.claude/memory.db
+.claude/cache/
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*.swo

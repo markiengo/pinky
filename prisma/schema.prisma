@@ -2,12 +2,12 @@
 // Datasource: SQLite for local-first dev; swap to PostgreSQL via DATABASE_URL
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 // ─── Users ──────────────────────────────────────────────────────────
@@ -58,9 +58,9 @@ model Question {
   deThiId       String   @map("de_thi_id")
   type          String   @default("mcq") // "mcq" | "essay"
   content       String
-  options       String?      // JSON array for MCQ options (SQLite stores as text)
-  correctAnswer String       @default("") @map("correct_answer")
-  orderIndex    Int          @default(0) @map("order_index")
+  options       String?  // JSON array for MCQ options (SQLite stores as text)
+  correctAnswer String   @default("") @map("correct_answer")
+  orderIndex    Int      @default(0) @map("order_index")
 
   deThi       DeThi        @relation(fields: [deThiId], references: [id])
   quizAnswers QuizAnswer[]

@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -93,6 +94,16 @@ async function main() {
   }
 
   console.log(`  ${deThiCount} de_thi upserted`);
+
+  // ── Demo user ─────────────────────────────────────────────────────
+  const demoPasswordHash = await bcrypt.hash("demo1234", 10);
+  await prisma.user.upsert({
+    where: { username: "demo" },
+    update: { passwordHash: demoPasswordHash },
+    create: { username: "demo", passwordHash: demoPasswordHash },
+  });
+  console.log("  demo user upserted (demo / demo1234)");
+
   console.log("Seeding complete.");
 }
 

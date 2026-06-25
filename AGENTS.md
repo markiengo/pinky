@@ -81,3 +81,26 @@ Local files stay private:
 - prefer a generated repo primer over hand-wavy "I scanned the repo"
 - keep default automation light and deterministic
 - separate shared guidance from personal local preferences
+
+## Working methodology — questioning and execution protocol
+
+### 1. Context first
+
+Read existing files, research external references (e.g. FotMob), understand existing patterns before asking anything. Never ask a question answerable by reading the codebase.
+
+### 2. Targeted questioning
+
+Use `ask_user_question` with 2-4 concrete predefined options for every design decision. Never open-ended. Cover in order: scope, features/data, visual treatment, layout, sizing, interaction, formatting, backend needs. Aim for 8-15 questions on moderate features. When the user says "ask like 20 more questions," they mean it — err toward more.
+
+### 3. Plan
+
+Write a concise scannable plan (tables, bullets) to the Windsurf plans directory. Wait for confirmation.
+
+### 4. Execute
+
+Immediately after confirmation. Use `todo_list`. Batch independent edits in parallel. Fix bugs without asking — root cause, patch, verify with dev server + browser preview.
+
+### 5. Bug fixing
+
+Read the failing module, fix at root, add mock fallbacks for new API methods, verify by running the server.
+

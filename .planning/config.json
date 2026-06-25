@@ -1,0 +1,57 @@
+{
+  "mode": "yolo",
+  "granularity": "standard",
+  "parallelization": true,
+  "commit_docs": true,
+  "model_profile": "inherit",
+  "workflow": {
+    "research": true,
+    "research_before_questions": true,
+    "plan_check": true,
+    "verifier": true,
+    "nyquist_validation": true,
+    "auto_advance": true,
+    "visual_verification": true
+  },
+  "project": {
+    "name": "AI Exam Prep App",
+    "stack": "nextjs-app-router-ts-tailwind",
+    "data_layer": "prisma-sqlite",
+    "auth": "username-password-bcrypt",
+    "deploy_target": "local-first (Prisma swap to Postgres for Vercel/Neon)"
+  },
+  "execution": {
+    "model_rotation": ["glm-4.6", "kimi-k2"],
+    "escalation_models": ["opus", "gpt"],
+    "escalation_rule": "Only escalate after 2 failed attempts at the same root cause, or an architectural decision with no clear answer after research.",
+    "research_required_each_phase": true,
+    "visual_verification_required": true
+  },
+  "ship": {
+    "pr_body_sections": [
+      {
+        "heading": "User Stories & Acceptance Criteria",
+        "enabled": true,
+        "source": "REQUIREMENTS.md ## User Stories || REQUIREMENTS.md ## Acceptance Criteria",
+        "fallback": "- Acceptance criteria are covered by the linked requirements and verification evidence."
+      },
+      {
+        "heading": "Risks & Dependencies",
+        "enabled": true,
+        "source": "PLAN.md ## Risks || PLAN.md ## Dependencies",
+        "fallback": "- No known high-risk rollout dependencies."
+      },
+      {
+        "heading": "Success Metrics & Release Criteria",
+        "enabled": true,
+        "source": "REQUIREMENTS.md ## Definition of Done || VERIFICATION.md ## Release Criteria",
+        "fallback": "- Release when automated verification and required manual checks pass."
+      },
+      {
+        "heading": "Stakeholder Review & Approval",
+        "enabled": false,
+        "template": "- Product owner approval pending for {phase_name}."
+      }
+    ]
+  }
+}

@@ -140,7 +140,7 @@ export default function LandingPage() {
               width={28}
               height={28}
               priority
-              className="rounded-full"
+              style={{ mixBlendMode: "screen" }}
             />
             <span className="font-sans font-semibold text-[15px] text-white">
               Crambox
@@ -1228,7 +1228,7 @@ export default function LandingPage() {
               alt="Crambox logo"
               width={24}
               height={24}
-              className="rounded-full"
+              style={{ mixBlendMode: "multiply" }}
             />
             <span
               className="font-sans font-semibold text-[14px]"

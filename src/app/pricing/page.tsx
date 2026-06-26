@@ -76,7 +76,7 @@ export default function PricingPage() {
             width={28}
             height={28}
             priority
-            className="rounded-full"
+            style={{ mixBlendMode: "multiply" }}
           />
           <span className="font-sans font-semibold text-[15px]" style={{ color: "#1E1B3A" }}>
             Crambox

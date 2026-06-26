@@ -63,7 +63,7 @@ export function AppShell({
             alt="Crambox logo"
             width={40}
             height={40}
-            className="rounded-[14px] flex-shrink-0"
+            className="flex-shrink-0" style={{ mixBlendMode: "multiply" }}
           />
           <span
             className="font-sans font-bold text-[15px]"

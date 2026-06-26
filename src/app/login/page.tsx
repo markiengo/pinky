@@ -73,6 +73,7 @@ export default function LoginPage() {
               height={48}
               priority
               className="flex-shrink-0"
+              style={{ mixBlendMode: "multiply" }}
             />
             <div>
               <h1

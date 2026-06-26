@@ -74,16 +74,18 @@ Wave 5:          Phase 7 (Polish + Visual Verify)      ← needs everything
 **Goal:** A realistic Vietnamese đề bank + the deterministic matching pipeline.
 
 **Deliverables:**
-- **Web-research real THPT đề** (Toán/Lý/Hóa curriculum topics, common chapters, tag taxonomy) — write findings to `.planning/research/`
-- Seed data: 3 subjects, 2–3 đề each, 50–100 questions; LaTeX math + Markdown structure; clean tags; correct/model answers
-- Vietnamese normalization util (strip diacritics, lowercase, tokenize) — pure code, unit-tested
-- Subject detection from keyword tables (PRD §13.2)
-- Tag matching + rule-based ranking by overlap (PRD §13.3); returns 3–6 đề with match reason
-- Matching exposed as a typed service consumed by Phase 4
+- **Web-research real university đề** (Accounting, Banking, Business curriculum topics, common chapters, tag taxonomy) — findings in `.planning/research/phase3-content.md`
+- Seed data: 3 college subjects (Kế toán, Tài chính – Ngân hàng, Quản trị Kinh doanh), 8 đề total, 60 questions; Markdown structure; clean tags; correct/model answers
+- Vietnamese normalization util (strip diacritics, lowercase, tokenize) — pure code, unit-tested (`src/lib/vietnamese.ts`)
+- Subject detection from keyword tables (PRD §13.2) — `src/lib/subject-detection.ts`
+- Tag matching + rule-based ranking by overlap (PRD §13.3); returns 3–6 đề with match reason — `src/lib/matching.ts`
+- Matching exposed as a typed service consumed by Phase 4 — `src/lib/search-service.ts`
 
-**Acceptance:** Given a Vietnamese prompt, engine returns ranked đề with reasons; normalization unit tests pass; seed populates the bank.
+**Acceptance:** Given a Vietnamese prompt, engine returns ranked đề with reasons; 33 normalization/matching unit tests pass; seed populates the bank.
 
-**Research first (mandatory content + technical):** real Vietnamese THPT exam structure/formatting, common topic tags per subject; diacritics-normalization approaches in JS/TS.
+**Research first (mandatory content + technical):** real Vietnamese university exam structure/formatting, common topic tags per subject; diacritics-normalization approaches in JS/TS.
+
+**Status:** ✓ Complete (2026-06-26) — UAT 10/10 passed, 33/33 tests green, seed verified.
 
 ---
 

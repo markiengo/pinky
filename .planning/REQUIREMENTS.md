@@ -24,13 +24,13 @@
 
 ### Content & Matching Engine
 
-- [ ] **CONT-01**: Seed bank has 3 subjects (Toán, Vật Lý, Hóa Học) with slugs
-- [ ] **CONT-02**: 2–3 đề per subject, 50–100 total questions, each with clean tags + correct/model answers
-- [ ] **CONT-03**: Question/answer content authored in LaTeX (math) + Markdown (structure), grounded in researched real THPT exam formats
-- [ ] **MATCH-01**: Vietnamese text normalization (diacritics-stripped, lowercased) implemented as pure code
-- [ ] **MATCH-02**: Subject detection from prompt/PDF text via keyword tables (PRD §13.2)
-- [ ] **MATCH-03**: Topic/tag matching with rule-based ranking by tag overlap (PRD §13.3)
-- [ ] **MATCH-04**: Matching returns 3–6 đề with a human-readable match reason per đề
+- [x] **CONT-01**: Seed bank has 3 college subjects (Kế toán, Tài chính – Ngân hàng, Quản trị Kinh doanh) with slugs
+- [x] **CONT-02**: 2–3 đề per subject, 60 total questions, each with clean tags + correct/model answers
+- [x] **CONT-03**: Question/answer content authored in Markdown, grounded in researched real university exam formats (FTU, NEU, UEL, ĐH Mở, HVNH)
+- [x] **MATCH-01**: Vietnamese text normalization (diacritics-stripped, lowercased) implemented as pure code
+- [x] **MATCH-02**: Subject detection from prompt/PDF text via keyword tables (PRD §13.2)
+- [x] **MATCH-03**: Topic/tag matching with rule-based ranking by tag overlap (PRD §13.3)
+- [x] **MATCH-04**: Matching returns 3–6 đề with a human-readable match reason per đề
 
 ### Chatbox & Upload
 
@@ -93,8 +93,8 @@
 |-------------|-------|--------|
 | FND-01..05 | Phase 1 | Pending |
 | AUTH-01..06 | Phase 2 | Pending |
-| CONT-01..03 | Phase 3 | Pending |
-| MATCH-01..04 | Phase 3 | Pending |
+| CONT-01..03 | Phase 3 | ✓ Complete |
+| MATCH-01..04 | Phase 3 | ✓ Complete |
 | CHAT-01..07 | Phase 4 | Pending |
 | QUIZ-01..06 | Phase 5 | Pending |
 | HIST-01 | Phase 6 | Pending |
@@ -108,4 +108,4 @@
 
 ---
 *Requirements defined: 2026-06-25*
-*Last updated: 2026-06-25 after initial definition*
+*Last updated: 2026-06-26 — Phase 3 requirements marked complete, subjects updated from THPT to college-level*

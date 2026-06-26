@@ -4,6 +4,7 @@ import { useActionState, useEffect, useState } from "react";
 import { loginAction } from "@/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
+import { LogoImage } from "@/components/logo-image";
 import { X, AlertCircle } from "lucide-react";
 
 export default function LoginPage() {
@@ -66,15 +67,7 @@ export default function LoginPage() {
         {/* Right: white login form */}
         <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-10 md:px-12 md:py-14 bg-white">
           <div className="mb-8 flex items-center gap-3">
-            <Image
-              src="/logo.png"
-              alt="Crambox logo"
-              width={48}
-              height={48}
-              priority
-              className="flex-shrink-0"
-              style={{ mixBlendMode: "multiply" }}
-            />
+            <LogoImage width={48} height={48} priority />
             <div>
               <h1
                 className="font-sans text-[28px] font-bold tracking-[-0.01em] mb-2"

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { LogoImage } from "@/components/logo-image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -58,13 +58,7 @@ export function AppShell({
           className="flex items-center gap-2.5 mx-3 mb-1 rounded-[14px]"
           title="Crambox"
         >
-          <Image
-            src="/logo.png"
-            alt="Crambox logo"
-            width={40}
-            height={40}
-            className="flex-shrink-0" style={{ mixBlendMode: "multiply" }}
-          />
+          <LogoImage width={40} height={40} />
           <span
             className="font-sans font-bold text-[15px]"
             style={{ color: "#1E1B3A" }}

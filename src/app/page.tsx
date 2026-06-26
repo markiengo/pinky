@@ -1,6 +1,7 @@
 import { ArrowRight, BarChart3, Sparkles, MessageSquare, FileText, CheckCircle2, Star, TrendingUp, Calendar, Zap } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { LogoImage } from "@/components/logo-image";
 
 const testimonials = [
   { face: "/faces/face-1.jpg", name: "Nguyễn Thị An", school: "NEU · Kế toán", quote: "Điểm trung bình tăng từ 6.5 lên 8.2 sau 3 tuần luyện đề.", stars: 5 },
@@ -134,14 +135,7 @@ export default function LandingPage() {
         {/* Nav bar — transparent over illustration */}
         <nav className="relative z-10 flex items-center justify-between px-6 md:px-12 py-5">
           <div className="flex items-center gap-2.5">
-            <Image
-              src="/logo.png"
-              alt="Crambox logo"
-              width={28}
-              height={28}
-              priority
-              style={{ mixBlendMode: "screen" }}
-            />
+            <LogoImage width={28} height={28} priority />
             <span className="font-sans font-semibold text-[15px] text-white">
               Crambox
             </span>
@@ -1223,13 +1217,7 @@ export default function LandingPage() {
       >
         <div className="max-w-[1200px] mx-auto flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-2.5">
-            <Image
-              src="/logo.png"
-              alt="Crambox logo"
-              width={24}
-              height={24}
-              style={{ mixBlendMode: "multiply" }}
-            />
+            <LogoImage width={24} height={24} />
             <span
               className="font-sans font-semibold text-[14px]"
               style={{ color: "#1E1B3A" }}

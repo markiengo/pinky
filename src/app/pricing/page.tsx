@@ -1,6 +1,7 @@
 import { CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { LogoImage } from "@/components/logo-image";
 
 const tiers = [
   {
@@ -70,14 +71,7 @@ export default function PricingPage() {
       {/* ── NAV ── */}
       <nav className="relative z-10 flex items-center justify-between px-6 md:px-12 py-5">
         <Link href="/" className="flex items-center gap-2.5">
-          <Image
-            src="/logo.png"
-            alt="Crambox logo"
-            width={28}
-            height={28}
-            priority
-            style={{ mixBlendMode: "multiply" }}
-          />
+          <LogoImage width={28} height={28} priority />
           <span className="font-sans font-semibold text-[15px]" style={{ color: "#1E1B3A" }}>
             Crambox
           </span>

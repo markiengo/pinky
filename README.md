@@ -22,6 +22,7 @@ You type what you need, upload your materials, and Crambox matches you with rele
 - Manage your profile and review full attempt history
 - Preview pricing tiers (Free, Plus, Pro)
 - Multi-chat sessions in the chatbox (in-memory, ephemeral)
+- **Calendar study planner** (Premium) — smart scheduling with 3 daily time frames, breaks, drag-and-drop, event editing
 
 ## Subjects Covered
 
@@ -109,7 +110,10 @@ npx vitest run  # Run unit tests (35 tests across vietnamese, subject-detection,
 | /history               | Full attempt history with charts                        |
 | /profile               | Profile, stats, and logout                              |
 | /pricing               | Pricing tiers (Free, Plus, Pro)                         |
+| /calendar              | Study planner calendar (Premium, month/week views)     |
 | /api/search            | Search API endpoint (POST, FormData)                    |
+| /api/calendar/plan     | Study plan CRUD API (GET/POST)                          |
+| /api/calendar/session  | Study session batch save API (PUT)                      |
 | /api/dev-clear-session | Dev-only session clear endpoint (POST)                  |
 
 ## Pricing
@@ -142,6 +146,8 @@ src/
     globals.css     Design tokens, animations, global styles
   components/       UI components
     app-shell.tsx       Desktop sidebar + mobile bottom nav
+    calendar/           Calendar study planner components
+      calendar-client.tsx  Main calendar UI (month/week views, event modal, wizard)
     chatbox.tsx         Multi-chat AI search interface
     quiz-client.tsx     Quiz taking (MCQ + essay, inline explanations)
     charts.tsx          Recharts score progression + subject averages
@@ -158,6 +164,7 @@ src/
     db.ts              Prisma client singleton
     quiz.ts            Quiz data fetching + attempt saving
     history.ts         Quiz history + dashboard stats
+    calendar.ts        Study plan CRUD + smart scheduling algorithm
     search-service.ts  Search orchestration with caching
     matching.ts        Tag matching + rule-based ranking engine
     subject-detection.ts  Subject detection from keyword tables

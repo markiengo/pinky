@@ -19,8 +19,61 @@ model User {
   createdAt    DateTime @default(now()) @map("created_at")
 
   quizAttempts QuizAttempt[]
+  studyPlan    StudyPlan?
 
   @@map("users")
+}
+
+// ─── Study Plan ───────────────────────────────────────────────────
+model StudyPlan {
+  id        String   @id @default(cuid())
+  userId    String   @unique @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subjects StudySubject[]
+  sessions StudySession[]
+
+  @@map("study_plans")
+}
+
+// ─── Study Subject ──────────────────────────────────────────────────
+model StudySubject {
+  id          String   @id @default(cuid())
+  planId      String   @map("plan_id")
+  name        String
+  examDate    DateTime @map("exam_date")
+  dailyHours  Float    @map("daily_hours")
+  totalHours  Float    @map("total_hours")
+  color       String   @default("#9F7AEA")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  plan     StudyPlan      @relation(fields: [planId], references: [id], onDelete: Cascade)
+  sessions StudySession[]
+
+  @@map("study_subjects")
+}
+
+// ─── Study Session ──────────────────────────────────────────────────
+model StudySession {
+  id         String    @id @default(cuid())
+  planId     String    @map("plan_id")
+  subjectId  String    @map("subject_id")
+  title      String
+  startTime  DateTime  @map("start_time")
+  endTime    DateTime  @map("end_time")
+  status     String    @default("planned") // "planned" | "done" | "skipped"
+  deThiId    String?   @map("de_thi_id")
+  description String?  @map("description")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @updatedAt @map("updated_at")
+
+  plan    StudyPlan    @relation(fields: [planId], references: [id], onDelete: Cascade)
+  subject StudySubject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@map("study_sessions")
 }
 
 // ─── Subjects ───────────────────────────────────────────────────────

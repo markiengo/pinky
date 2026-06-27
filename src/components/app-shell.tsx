@@ -14,20 +14,23 @@ import {
   FileSearch,
   HeartPulse,
   Layers,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { logoutAction as logout } from "@/lib/auth";
+import { useTheme } from "./theme-provider";
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/library", icon: Library, label: "Thư viện" },
   { href: "/practice", icon: MessageSquare, label: "Chatbox" },
+  { href: "/calendar", icon: CalendarClock, label: "Lịch ôn thi" },
   { href: "/history", icon: History, label: "Lịch sử" },
   { href: "/profile", icon: User, label: "Hồ sơ" },
 ] as const;
 
 const comingSoonItems = [
   { icon: Layers, label: "Flashcards" },
-  { icon: CalendarClock, label: "Lịch ôn thi" },
   { icon: FileSearch, label: "Phân tích đề cương" },
   { icon: HeartPulse, label: "Chăm sóc tinh thần" },
 ] as const;
@@ -40,6 +43,7 @@ export function AppShell({
   username?: string | null;
 }) {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="flex h-dvh overflow-hidden">
@@ -131,6 +135,34 @@ export function AppShell({
         </div>
 
         <div className="flex-1" />
+
+        {/* theme toggle */}
+        <div className="flex items-center gap-1 mx-2 mb-1 p-1 rounded-[10px]" style={{ background: "var(--sidebar-accent)" }}>
+          <button
+            type="button"
+            onClick={() => setTheme("light")}
+            aria-label="Light mode"
+            className="grid place-items-center w-8 h-8 rounded-[8px] transition-all"
+            style={{
+              background: theme === "light" ? "var(--background)" : "transparent",
+              color: theme === "light" ? "#F4899A" : "var(--muted-foreground)",
+            }}
+          >
+            <Sun className="w-4 h-4" strokeWidth={2} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setTheme("dark")}
+            aria-label="Dark mode"
+            className="grid place-items-center w-8 h-8 rounded-[8px] transition-all"
+            style={{
+              background: theme === "dark" ? "var(--background)" : "transparent",
+              color: theme === "dark" ? "#9F7AEA" : "var(--muted-foreground)",
+            }}
+          >
+            <Moon className="w-4 h-4" strokeWidth={2} />
+          </button>
+        </div>
 
         {/* user avatar + logout */}
         <div className="flex items-center gap-2.5 mx-3 mb-1">

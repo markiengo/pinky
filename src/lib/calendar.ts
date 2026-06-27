@@ -108,6 +108,7 @@ export async function getStudyPlan(): Promise<{
       ...s,
       sessions: s.sessions.map((session: typeof s.sessions[0]) => ({
         ...session,
+        status: session.status as "planned" | "done" | "skipped",
         subject: {
           id: s.id,
           name: s.name,

@@ -11,8 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "tsx prisma/seed-hard.mts",
-    "supabase:push": "tsx prisma/supabase-push.mts",
-    "supabase:seed": "tsx prisma/supabase-seed.mts"
+    "supabase:migrate": "tsx prisma/supabase-migrate.mts"
   },
   "prisma": {
     "seed": "tsx prisma/seed-hard.mts"

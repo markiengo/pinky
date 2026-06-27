@@ -69,6 +69,9 @@
 - **Number input spin buttons**: Webkit shows spin buttons on `type="number"` — use `type="text"` + `inputMode="numeric"` + CSS to hide
 - **Supabase push**: Schema provider is `sqlite` — need temporary postgres schema file to push to Supabase
 - **`@map` fields**: Prisma `@map` column names need explicit handling in serialize functions
+- **CRITICAL — Never run seed-hard.mts against Supabase**: The seed script starts with `deleteMany()` on ALL tables. Running it against Supabase wipes all production data. Only run `npm run seed` for local SQLite. For Supabase schema changes, use `npm run supabase:migrate` which only pushes schema (no data loss).
+- **TypeScript union types from Prisma**: Prisma returns `status` as `string`, but our interface requires `"planned" | "done" | "skipped"`. Must cast explicitly in `getStudyPlan()`.
+- **Supabase pool limit**: Pooler max connections = 15. Keep parallel DB operations at concurrency ≤ 5.
 
 ### Design Decisions
 - **3 frames over 1 continuous block**: Better lifestyle fit (lunch break, dinner break)
